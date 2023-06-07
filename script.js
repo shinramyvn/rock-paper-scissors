@@ -12,21 +12,35 @@ function getComputerChoice() {
 }
 //Create a function that will allow player to select their move
 function playerSelection(selection) {
-    if (selection.toLowerCase() == "rock") {
-        return selection.toLowerCase()
-    } else if (selection.toLowerCase() == "paper") {
-        return selection.toLowerCase()
-    } else if (selection.toLowerCase() == "scissors") {
-        return selection.toLowerCase()
-    } else {
-        console.log("Invalid move entered");
-    }
+    return selection.toLowerCase();
 }
-
-console.log(getComputerChoice());
-console.log(playerSelection("rock"));
 
 //This function will check for a winner, loser, or tie
-function playRound(playerSelection, getComputerChoice) {
-
+function playRound(playerMove, computerMove) {
+    let player = playerSelection(playerMove);
+    let computer = getComputerChoice();
+    if (player === computer) {
+        return "It is a tie!"
+    } else if (player === "rock") {
+        if (computer === "paper") {
+            return "You lose! Paper beats rock."
+        } else if (computer === "scissors") {
+            return "You win! Rock beats scissors."
+        }
+    } else if (player === "paper") {
+        if (computer === "rock") {
+            return "You win! Paper beats rock."
+        } else if (computer === "scissors") {
+            return "You lose! Scissors beats paper."
+        }
+    } else if (player === "scissors") {
+        if (computer === "rock") {
+            return "You lose! Rock beats scissors."
+        } else if (computerChoice === "paper") {
+            return "You win! Scissors beats paper."
+        }
+    }
 }
+const playerChoice = "rock";
+const computerChoice = getComputerChoice();
+console.log(playRound(playerChoice, computerChoice));
