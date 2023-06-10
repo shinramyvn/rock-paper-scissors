@@ -51,6 +51,7 @@ function playRound(playerMove, computerMove) {
 
 
 function game() {
+    /*
     //Game 1
     let move1 = prompt("Choose a move (rock, paper, or scissors): ");
     let computerChoice1 = getComputerChoice();
@@ -101,6 +102,22 @@ function game() {
     console.log("Score:");
     console.log("Player - " + playerWins);
     console.log("Computer - " + computerWins);
+    */
 }
 
-game();
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const text = document.querySelector('#text');
+
+rock.addEventListener('click', () => {
+    playRound("rock",getComputerChoice());
+});
+
+paper.addEventListener('click', () => {
+    playRound("paper",getComputerChoice());
+});
+
+scissors.addEventListener('click', () => {
+    playRound("scissors",getComputerChoice());
+});
